@@ -3,7 +3,6 @@ package order
 import (
 	"context"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -17,7 +16,7 @@ type Library struct {
 }
 
 func AddOrder() gin.HandlerFunc {
-	return func(c *gin.Context) {
+	return func(c *gin.Context) {		
 		var library Library
 		if err := c.ShouldBindJSON(&library); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
